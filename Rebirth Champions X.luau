@@ -21,7 +21,7 @@ end
 local function r_input(text)
     rconsoleprint(text); rconsoleinput()
 end
-
+--// Commands
 local commands = {}
 local commands.AutoFarm = false;
 local commands.Gamepasses = false;
