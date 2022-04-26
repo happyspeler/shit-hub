@@ -7,7 +7,6 @@
     commit and push.
     
 ]]
-rconsolename("shit-hub");
 
 if (game.PlaceId == 8540346411) then
     
