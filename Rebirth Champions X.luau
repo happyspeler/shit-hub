@@ -1,8 +1,7 @@
-local player = game:GetService("Players").LocalPlayer
-local ToggleValue1 = false
 
+--// Functions
 local function Fire(service, named)
-    for _, v in pairs(game:FindFirstChild(service):GetDescendants()) do
+    for _, v in ipairs(game:FindFirstChild(service):GetDescendants()) do
         if (v.Name == named) then
             v:FireServer()
         end
@@ -21,8 +20,14 @@ end
 local function r_input(text)
     rconsoleprint(text); rconsoleinput()
 end
---// Commands
-local commands = {}
-local commands.AutoFarm = false;
-local commands.Gamepasses = false;
 
+
+local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/elsiahrekeno/reductui/main/source.lua"))()
+
+local Window = Library.Window({
+    Title = "shit-hub"
+})
+
+local Category = Window.Category({
+    Title = "Main"
+})
