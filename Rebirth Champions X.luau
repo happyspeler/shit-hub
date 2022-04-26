@@ -27,8 +27,10 @@ local commands.AutoFarm = false;
 local commands.Gamepasses = false;
 
 if isfolder("shit-hub") then --// executed before
-
+    
 else
     makefolder("shit-hub")
-    loadstring(game:HttpGet("", true))
+    task.wait(5)
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/happyspeler/shit-hub/main/Rebirth%20Champions%20X.luau", true))
+    return;
 end
