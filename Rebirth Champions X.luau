@@ -32,25 +32,3 @@ local Category = Window.Category({
     Title = "very shit."
 })
 
-Category.Toggle({
-    Title = "AutoFarm",
-    Callback = function(state)
-            print(state) 
-            
-            getgenv().toggled = nil 
-
-
-            togglefunction(state) 
-                getgenv().toggled = state
-            end
-            
-            while wait() do
-                if getgenv().toggled then
-                    -- your code here
-                end
-            end
-            
-    end,
-    Default = false -- true/false default is false
-})
-
