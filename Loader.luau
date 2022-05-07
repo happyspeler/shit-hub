@@ -44,3 +44,8 @@ end
 
 local GameId = game.PlaceId;
 
+--// Checking games
+
+if GameId == 155615604 then
+    
+end
