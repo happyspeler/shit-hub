@@ -1,4 +1,6 @@
-if getgenv()._Settings.ESP == true then --// No boolean needed
+local _Settings = getgenv()._Settings
+
+if _Settings.ESP == true then --// No boolean needed
     --// ESP made by iRc7
     print("ESP is enabled!")
     local esp_name = "shit-esp"
