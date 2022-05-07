@@ -1,10 +1,4 @@
-if not syn or not KRNL_LOADED then
-    local UnsupportedExploit = Instance.new("Hint", workspace);
-    UnsupportedExploit.Text = "Exploit might be unsupported, consider using krnl or synapse (krnl.ca)";
-    game.Debris:AddItem(UnsupportedExploit, 5)
-end
-
-if Esp == true then
+if getgenv().Esp == true then
     local esp_name = "shit-esp"
     local esp_settings = { ---- table for esp settings 
         textsize = 8,
