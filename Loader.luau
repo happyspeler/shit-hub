@@ -47,5 +47,5 @@ local GameId = game.PlaceId;
 --// Checking games
 
 if GameId == 155615604 then
-    
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/happyspeler/shit-hub/main/Games/Prison%20Life.lua"))
 end
