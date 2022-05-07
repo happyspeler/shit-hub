@@ -1,4 +1,4 @@
-if getgenv().Esp == true then
+if getgenv().Esp then --// No boolean needed
     --// ESP made by iRc7
     print("ESP is enabled!")
     local esp_name = "shit-esp"
