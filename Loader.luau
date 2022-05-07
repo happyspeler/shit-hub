@@ -1,4 +1,5 @@
 local _Settings = getgenv()._Settings
+local c_plr = game:GetService("Players").LocalPlayer.Character;
 
 if _Settings.ESP == true then --// No boolean needed
     --// ESP made by iRc7
@@ -30,13 +31,16 @@ if _Settings.ESP == true then --// No boolean needed
 
     game:GetService("RunService").RenderStepped:Connect(function() ---- loops faster than a while loop :)
         for i,v in pairs (game:GetService("Players"):GetPlayers()) do
-            if v ~= game:GetService("Players").LocalPlayer and v.Character.Head:FindFirstChild(esp_name)==nil  then -- craeting checks for team check, local player etc
-                esp.Text = "{"..v.Name.."}"
+            if v ~= c_plr and v.Character.Head:FindFirstChild(esp_name)==nil  then -- creating checks for team check, local player etc
+                local Distance = (c_plr.Head.Position - v.Character.Head.Position).Magnitude
+                esp.Text = v.Name.."|"..Distance
                 gui:Clone().Parent = v.Character.Head
+            end
         end
-    end
     end)
 else
     print("ESP Disabled");
 end
+
+local GameId = game.PlaceId;
 
