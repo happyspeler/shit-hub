@@ -1,4 +1,5 @@
 if getgenv().Esp == true then
+    --// ESP made by iRc7
     local esp_name = "shit-esp"
     local esp_settings = { ---- table for esp settings 
         textsize = 8,
