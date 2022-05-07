@@ -38,7 +38,7 @@ if _Settings.ESP == true then --// No boolean needed
                 gui:Clone().Parent = v.Character.Head
             end
         end
-    end)
+    end)()
 else
     print("ESP Disabled");
 end
