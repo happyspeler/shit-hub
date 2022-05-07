@@ -1,22 +1,21 @@
 local _Settings = getgenv()._Settings;
-local c_plr = game:GetService("Players").LocalPlayer.Character;
 local plr = game:GetService("Players").LocalPlayer;
-local RunService = game:GetService("RunService");
+local c_plr = plr.Character;
 
 if _Settings.ESP == true then --// No boolean needed
     --// ESP made by iRc7
     print("ESP is enabled!")
     local esp_name = "shit-esp"
-    local esp_settings = {
+    local esp_settings = { ---- table for esp settings
         colour = 255, 0, 0
     }
 
     local gui = Instance.new("BillboardGui")
-    local esp = Instance.new("TextLabel",gui)
+    local esp = Instance.new("TextLabel",gui) ---- new instances to make the billboard gui and the textlabel
 
 
 
-    gui.Name = esp_name;
+    gui.Name = esp_name; ---- properties of the esp
     gui.ResetOnSpawn = false
     gui.AlwaysOnTop = true;
     gui.LightInfluence = 0;
@@ -31,19 +30,14 @@ if _Settings.ESP == true then --// No boolean needed
     esp.TextSize = _Settings.ESP_TextSize
     esp.TextColor3 = Color3.fromRGB(esp_settings.colour) -- text colour
 
-    RunService.RenderStepped:Connect(function()
+    game:GetService("RunService").RenderStepped:Connect(function() ---- loops faster than a while loop :)
         for i,v in pairs (game:GetService("Players"):GetPlayers()) do
-            if v.Character.Head:FindFirstChild(esp_name)==nil  then
-                local Distance = (c_plr.Head.Position - v.Character.Head.Position).Magnitude
-                local RoundedDistance = math.floor(Distance+0.5)
-                esp.Text = v.Name.."| Distance: "..RoundedDistance
-                local clonedgui = gui:Clone()
-                clonedgui.Parent = v.Character.Head
-                RunService.RenderStepped:Wait()
-                clonedgui:Destroy()
-            end
+            if v ~= game:GetService("Players").LocalPlayer and v.Character.Head:FindFirstChild(esp_name)==nil  then -- creating checks for team check, local player etc
+                esp.Text = v.Name
+                gui:Clone().Parent = v.Character.Head
         end
-    end)()
+    end
+    end)
 else
     print("ESP Disabled");
 end
