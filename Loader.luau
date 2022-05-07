@@ -5,16 +5,16 @@ if _Settings.ESP == true then --// No boolean needed
     --// ESP made by iRc7
     print("ESP is enabled!")
     local esp_name = "shit-esp"
-    local esp_settings = { ---- table for esp settings
+    local esp_settings = {
         colour = 255, 0, 0
     }
 
     local gui = Instance.new("BillboardGui")
-    local esp = Instance.new("TextLabel",gui) ---- new instances to make the billboard gui and the textlabel
+    local esp = Instance.new("TextLabel",gui)
 
 
 
-    gui.Name = esp_name; ---- properties of the esp
+    gui.Name = esp_name;
     gui.ResetOnSpawn = false
     gui.AlwaysOnTop = true;
     gui.LightInfluence = 0;
@@ -29,9 +29,9 @@ if _Settings.ESP == true then --// No boolean needed
     esp.TextSize = _Settings.ESP_TextSize
     esp.TextColor3 = Color3.fromRGB(esp_settings.colour) -- text colour
 
-    game:GetService("RunService").RenderStepped:Connect(function() ---- loops faster than a while loop :)
+    game:GetService("RunService").RenderStepped:Connect(function()
         for i,v in pairs (game:GetService("Players"):GetPlayers()) do
-            if v ~= plr and v.Character.Head:FindFirstChild(esp_name)==nil  then -- creating checks for team check, local player etc
+            if v ~= plr and v.Character.Head:FindFirstChild(esp_name)==nil  then
                 local Distance = (c_plr.Head.Position - v.Character.Head.Position).Magnitude
                 local RoundedDistance = math.floor(Distance+0.5)
                 esp.Text = v.Name.."| Distance: "..RoundedDistance
