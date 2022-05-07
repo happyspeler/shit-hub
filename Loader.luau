@@ -1,6 +1,8 @@
-local _Settings = getgenv()._Settings
+local _Settings = getgenv()._Settings;
 local c_plr = game:GetService("Players").LocalPlayer.Character;
-local plr = game:GetService("Players").LocalPlayer
+local plr = game:GetService("Players").LocalPlayer;
+local RunService = game:GetService("RunService");
+
 if _Settings.ESP == true then --// No boolean needed
     --// ESP made by iRc7
     print("ESP is enabled!")
@@ -29,13 +31,16 @@ if _Settings.ESP == true then --// No boolean needed
     esp.TextSize = _Settings.ESP_TextSize
     esp.TextColor3 = Color3.fromRGB(esp_settings.colour) -- text colour
 
-    game:GetService("RunService").RenderStepped:Connect(function()
+    RunService.RenderStepped:Connect(function()
         for i,v in pairs (game:GetService("Players"):GetPlayers()) do
-            if v ~= plr and v.Character.Head:FindFirstChild(esp_name)==nil  then
+            if v.Character.Head:FindFirstChild(esp_name)==nil  then
                 local Distance = (c_plr.Head.Position - v.Character.Head.Position).Magnitude
                 local RoundedDistance = math.floor(Distance+0.5)
                 esp.Text = v.Name.."| Distance: "..RoundedDistance
-                gui:Clone().Parent = v.Character.Head
+                local clonedgui = gui:Clone()
+                clonedgui.Parent = v.Character.Head
+                RunService.RenderStepped:Wait()
+                clonedgui:Destroy()
             end
         end
     end)()
