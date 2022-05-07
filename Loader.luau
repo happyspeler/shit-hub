@@ -1,5 +1,6 @@
 if getgenv().Esp == true then
     --// ESP made by iRc7
+    print("ESP is enabled!")
     local esp_name = "shit-esp"
     local esp_settings = { ---- table for esp settings 
         textsize = 8,
@@ -34,5 +35,7 @@ if getgenv().Esp == true then
         end
     end
     end)
+else
+    print("ESP Disabled");
 end
 
