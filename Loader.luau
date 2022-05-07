@@ -33,7 +33,7 @@ if _Settings.ESP == true then --// No boolean needed
         for i,v in pairs (game:GetService("Players"):GetPlayers()) do
             if v ~= plr and v.Character.Head:FindFirstChild(esp_name)==nil  then -- creating checks for team check, local player etc
                 local Distance = (c_plr.Head.Position - v.Character.Head.Position).Magnitude
-                local RoundedDistance = math.floor(Distance)
+                local RoundedDistance = math.floor(Distance+0.5)
                 esp.Text = v.Name.."| Distance: "..RoundedDistance
                 gui:Clone().Parent = v.Character.Head
             end
