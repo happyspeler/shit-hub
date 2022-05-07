@@ -4,8 +4,7 @@ if _Settings.ESP == true then --// No boolean needed
     --// ESP made by iRc7
     print("ESP is enabled!")
     local esp_name = "shit-esp"
-    local esp_settings = { ---- table for esp settings 
-        textsize = 8,
+    local esp_settings = { ---- table for esp settings
         colour = 255, 0, 0
     }
 
@@ -26,7 +25,7 @@ if _Settings.ESP == true then --// No boolean needed
     esp.BorderColor3 = Color3.new(esp_settings.colour)
     esp.BorderSizePixel = 0
     esp.Font = "GothamSemibold"
-    esp.TextSize = esp_settings.textsize
+    esp.TextSize = _Settings.ESP_TextSize
     esp.TextColor3 = Color3.fromRGB(esp_settings.colour) -- text colour
 
     game:GetService("RunService").RenderStepped:Connect(function() ---- loops faster than a while loop :)
