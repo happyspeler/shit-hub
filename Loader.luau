@@ -1,4 +1,7 @@
+local RealKey = "TestKeySystem";
 
-if (game.PlaceId == 8540346411) then
-    
+if key == RealKey then
+    print("Success")
+else
+    print("Invalid Key!")
 end
